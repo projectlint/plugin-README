@@ -3,13 +3,13 @@ const { resolve } = require("path");
 const { evaluate, fetch } = require("../../lib/rules/single file");
 
 test("evaluate", function() {
-  const result = evaluate(null, null, null, []);
+  const result = evaluate({fetch: { result: []}});
 
   expect(result).toMatchInlineSnapshot(`false`);
 });
 
 test("fetch", function() {
-  return fetch({ projectRoot: resolve(__dirname, "../..") }).then(function(
+  return fetch({context: { projectRoot: resolve(__dirname, "../..") }}).then(function(
     result
   ) {
     expect(result).toMatchInlineSnapshot(`

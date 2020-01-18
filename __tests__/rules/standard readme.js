@@ -5,14 +5,14 @@ const { evaluate, fetch } = require("../../lib/rules/standard readme");
 const projectRoot = resolve(__dirname, "../..");
 
 test("evaluate", function() {
-  const result = evaluate(null, null, null, { messages: [] });
+  const result = evaluate({fetch: {result: { messages: [] }}});
 
   expect(result).toBeFalsy();
 });
 
 describe("fetch", function() {
   test("default (exact)", function() {
-    return fetch({ projectRoot }).then(function(result) {
+    return fetch({context: { projectRoot }}).then(function(result) {
       expect(result).toMatchInlineSnapshot(`
         VFile {
           "contents": "# Plugin README
@@ -43,7 +43,7 @@ describe("fetch", function() {
   });
 
   test("null option", function() {
-    return fetch({ projectRoot }, null, [null]).then(function(result) {
+    return fetch({context: { projectRoot }, config: [null]}).then(function(result) {
       expect(result).toMatchInlineSnapshot(`
         VFile {
           "contents": "# Plugin README
@@ -70,7 +70,7 @@ describe("fetch", function() {
   });
 
   test("slug", function() {
-    return fetch({ projectRoot }, null, ["slug"]).then(function(result) {
+    return fetch({context: { projectRoot }, config: ["slug"]}).then(function(result) {
       expect(result).toMatchInlineSnapshot(`
         VFile {
           "contents": "# Plugin README
