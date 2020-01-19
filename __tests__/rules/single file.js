@@ -5,7 +5,7 @@ const { evaluate, fetch } = require("../../lib/rules/single file");
 test("evaluate", function() {
   const result = evaluate({fetch: { result: []}});
 
-  expect(result).toMatchInlineSnapshot(`false`);
+  expect(result).toBeTruthy();
 });
 
 test("fetch", function() {
