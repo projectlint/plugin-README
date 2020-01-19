@@ -10,12 +10,32 @@ test("smoke", function() {
             "warning",
             Array [
               "slug",
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Object {
+                "installable": true,
+              },
             ],
           ],
         },
         "strict": Object {
           "single file": "error",
-          "standard readme": "error",
+          "standard readme": Array [
+            "error",
+            Array [
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Object {
+                "installable": true,
+                "toc": true,
+              },
+            ],
+          ],
         },
       },
       "rules": Object {
